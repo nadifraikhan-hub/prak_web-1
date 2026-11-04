@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan 2 - Manipulasi Elemen</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:700px;margin:40px auto;padding:0 16px}
+    .paragraf-baru{padding:10px;background:#eaf3fa;border-left:4px solid #315d83;margin:10px 0}
+    button{padding:10px 14px;margin-right:6px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <h1>Latihan Manipulasi Elemen</h1>
+  <button id="tambah-paragraf" type="button">Tambah Paragraf</button>
+  <button id="hapus-paragraf" type="button">Hapus Paragraf Terakhir</button>
+  <section id="area-konten">
+    <p>Area konten. Tekan tombol untuk menambah paragraf.</p>
+  </section>
+
+  <script>
+    const areaKonten = document.querySelector("#area-konten");
+    const tombolTambah = document.querySelector("#tambah-paragraf");
+    const tombolHapus = document.querySelector("#hapus-paragraf");
+    let nomorParagraf = 0;
+
+    tombolTambah.addEventListener("click", () => {
+      nomorParagraf++;
+
+      // Membuat elemen p baru dan mengisi teksnya.
+      const paragraf = document.createElement("p");
+      paragraf.textContent = `Ini paragraf baru ke-${nomorParagraf}.`;
+      paragraf.classList.add("paragraf-baru");
+
+      // Memasukkan paragraf ke area konten.
+      areaKonten.append(paragraf);
+    });
+
+    tombolHapus.addEventListener("click", () => {
+      // Hanya menghapus paragraf yang dibuat oleh tombol tambah.
+      const paragrafTerakhir = areaKonten.querySelector(".paragraf-baru:last-of-type");
+
+      if (paragrafTerakhir) {
+        paragrafTerakhir.remove();
+      } else {
+        console.log("Tidak ada paragraf yang dapat dihapus.");
+      }
+    });
+  </script>
+</body>
+</html>

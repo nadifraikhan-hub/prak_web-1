@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan 3 - Event dan Form</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:700px;margin:40px auto;padding:0 16px}
+    input{padding:10px;width:min(100%,400px)}button{padding:10px 14px;cursor:pointer}
+    .error{color:#b42318}.task{padding:8px;border-bottom:1px solid #ddd}
+  </style>
+</head>
+<body>
+  <h1>Latihan Event dan Form</h1>
+  <form id="form-kegiatan">
+    <label for="nama-kegiatan">Nama kegiatan:</label><br>
+    <input id="nama-kegiatan" type="text" placeholder="Masukkan kegiatan">
+    <button type="submit">Tambah</button>
+    <p id="pesan-error" class="error" aria-live="polite"></p>
+  </form>
+  <ul id="daftar"></ul>
+
+  <script>
+    const form = document.querySelector("#form-kegiatan");
+    const input = document.querySelector("#nama-kegiatan");
+    const errorMessage = document.querySelector("#pesan-error");
+    const list = document.querySelector("#daftar");
+
+    // Listener submit dipasang pada form, bukan hanya tombol.
+    form.addEventListener("submit", event => {
+      // Mencegah browser memuat ulang halaman.
+      event.preventDefault();
+
+      const value = input.value.trim();
+
+      // Validasi agar input tidak kosong atau hanya spasi.
+      if (value === "") {
+        errorMessage.textContent = "Nama kegiatan wajib diisi.";
+        input.focus();
+        return;
+      }
+
+      errorMessage.textContent = "";
+
+      // Jika valid, tambahkan kegiatan ke daftar.
+      const item = document.createElement("li");
+      item.className = "task";
+      item.textContent = value;
+      list.append(item);
+
+      console.log("Kegiatan ditambahkan:", value);
+      input.value = "";
+      input.focus();
+    });
+  </script>
+</body>
+</html>
