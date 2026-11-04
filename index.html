@@ -1,54 +1,56 @@
 <!doctype html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Kegiatan - Praktikum P9</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Kegiatan - Praktikum P9</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
 </head>
+
 <body>
-  <main class="container">
-    <header class="page-header">
-      <p class="eyebrow">PRAKTIKUM PEMROGRAMAN WEB 1 · PERTEMUAN 9</p>
-      <h1>Daftar Kegiatan</h1>
-      <p>Kelola kegiatan harian dengan mudah.</p>
-    </header>
+    <main class="container">
+        <header class="page-header">
+            <p class="eyebrow">PRAKTIKUM PEMROGRAMAN WEB 1 · PERTEMUAN 9</p>
+            <h1>Daftar Kegiatan</h1>
+            <p>Kelola kegiatan harian dengan cepat.</p>
+        </header>
 
-    <form id="form-kegiatan" class="form-card">
-      <label for="nama-kegiatan">Nama kegiatan</label>
-      <div class="form-row">
-        <input id="nama-kegiatan" type="text" maxlength="80"
-          placeholder="Contoh: Mengerjakan tugas DOM" autocomplete="off">
-        <button type="submit" class="primary">Tambah</button>
-      </div>
-      <div class="input-meta">
-        <p id="pesan-error" class="error" aria-live="polite"></p>
-        <small id="sisa-karakter">80 karakter tersisa</small>
-      </div>
+        <form id="form-kegiatan" class="form-card">
+            <label for="nama-kegiatan">Nama kegiatan</label>
+            <div class="form-row">
+                <input id="nama-kegiatan" type="text" maxlength="80" placeholder="Contoh: Mengerjakan tugas DOM" autocomplete="off">
+                <button type="submit" class="primary">Tambah</button>
+            </div>
+            <div class="input-meta">
+                <p id="pesan-error" class="error" aria-live="polite"></p>
+                <small id="sisa-karakter">80 karakter tersisa</small>
+            </div>
 
-      <label for="tanggal-kegiatan">Tanggal kegiatan</label>
-      <input id="tanggal-kegiatan" type="date">
-    </form>
+            <label for="tanggal-kegiatan">Tanggal kegiatan</label>
+            <input id="tanggal-kegiatan" type="date">
+        </form>
 
-    <section class="summary" aria-label="Ringkasan kegiatan">
-      <div><span>Total</span><strong id="total">0</strong></div>
-      <div><span>Selesai</span><strong id="selesai">0</strong></div>
-      <div><span>Belum selesai</span><strong id="belum">0</strong></div>
-    </section>
+        <section class="summary" aria-label="Ringkasan kegiatan">
+            <div><span>Total</span><strong id="total">0</strong></div>
+            <div><span>Selesai</span><strong id="selesai">0</strong></div>
+            <div><span>Belum selesai</span><strong id="belum">0</strong></div>
+        </section>
 
-    <section class="toolbar">
-      <nav class="filters" aria-label="Filter kegiatan">
-        <button type="button" data-filter="all" class="filter active">Semua</button>
-        <button type="button" data-filter="active" class="filter">Belum selesai</button>
-        <button type="button" data-filter="done" class="filter">Selesai</button>
-      </nav>
-      <button type="button" id="hapus-semua" class="danger-outline">Hapus Semua</button>
-    </section>
+        <section class="toolbar">
+            <nav class="filters" aria-label="Filter kegiatan">
+                <button type="button" data-filter="all" class="filter active">Semua</button>
+                <button type="button" data-filter="active" class="filter">Belum selesai</button>
+                <button type="button" data-filter="done" class="filter">Selesai</button>
+            </nav>
+            <button type="button" id="hapus-semua" class="danger-outline">Hapus Semua</button>
+        </section>
 
-    <ul id="daftar" class="task-list"></ul>
-    <p id="pesan-kosong" class="empty-state">Belum ada kegiatan. Tambahkan kegiatan pertama Anda.</p>
-    <footer>Data tersimpan selama halaman dibuka. Muat ulang halaman akan mengosongkan daftar.</footer>
-  </main>
+        <ul id="daftar" class="task-list"></ul>
+        <p id="pesan-kosong" class="empty-state">Belum ada kegiatan. Tambahkan kegiatan pertama Anda.</p>
+        <footer>Data tersimpan selama halaman dibuka. Muat ulang halaman akan mengosongkan daftar.</footer>
+    </main>
 </body>
+
 </html>

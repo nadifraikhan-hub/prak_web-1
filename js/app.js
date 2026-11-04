@@ -15,48 +15,48 @@ let tasks = [];
 let currentFilter = "all";
 const MAX_LENGTH = 80;
 
-// Menghitung dan menampilkan jumlah kegiatan.
+// Menghitung dan menampilkan jumlah kegiatan
 function updateSummary() {
-  const total = tasks.length;
-  const done = tasks.filter(task => task.done).length;
+    const total = tasks.length;
+    const done = tasks.filter(task => task.done).length;
 
-  totalElement.textContent = total;
-  doneElement.textContent = done;
-  activeElement.textContent = total - done;
+    totalElement.textContent = total;
+    doneElement.textContent = done;
+    activeElement.textContent = total - done;
 }
 
 // Membuat ulang tampilan daftar berdasarkan data dan filter.
 function renderTasks() {
-  list.textContent = "";
+    list.textContent = "";
 
-  const filteredTasks = tasks.filter(task => {
-    if (currentFilter === "active") return !task.done;
-    if (currentFilter === "done") return task.done;
-    return true;
-  });
+    const filteredTasks = tasks.filter(task => {
+        if (currentFilter === "active") return !task.done;
+        if (currentFilter === "done") return task.done;
+        return true;
+    });
 
-  filteredTasks.forEach(task => {
-    const item = document.createElement("li");
-    item.className = `task-item ${task.done ? "done" : ""}`;
-    item.dataset.id = task.id;
+    filteredTasks.forEach(task => {
+                const item = document.createElement("li");
+                item.className = `task-item ${task.done ? "done" : ""}`;
+                item.dataset.id = task.id;
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "toggle-task";
-    checkbox.checked = task.done;
-    checkbox.setAttribute("aria-label", "Tandai kegiatan selesai");
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.className = "toggle-task";
+                checkbox.checked = task.done;
+                checkbox.setAttribute("aria-label", "Tandai kegiatan selesai");
 
-    const content = document.createElement("div");
-    content.className = "task-content";
+                const content = document.createElement("div");
+                content.className = "task-content";
 
-    const name = document.createElement("span");
-    name.className = "task-name";
-    name.textContent = task.name;
+                const name = document.createElement("span");
+                name.className = "task-name";
+                name.textContent = task.name;
 
-    const date = document.createElement("small");
-    date.className = "task-date";
-    date.textContent = task.date
-      ? `Tanggal: ${new Date(`${task.date}T00:00:00`).toLocaleDateString("id-ID", {
+                const date = document.createElement("small");
+                date.className = "task-date";
+                date.textContent = task.date ?
+                    `Tanggal: ${new Date(`${task.date}T00:00:00`).toLocaleDateString("id-ID", {
           day: "2-digit", month: "long", year: "numeric"
         })}`
       : "Tanggal belum ditentukan";
